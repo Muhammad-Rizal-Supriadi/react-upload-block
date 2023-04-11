@@ -12,17 +12,24 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '../src/public/IPFS');
 });
 
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
-  console.log(req.file);
-  var data = Buffer.from(fs.readFileSync(req.file.path));
-  ipfs.add(data, function (err, file) {
-    if (err) {
-      console.log(err);
-      res.status(500).send('Internal server error');
-      return;
-    }
-    console.log(file);
-    res.send(file[0].hash);
+app.post('/document', upload.array('avatar', 2), function (req, res, next) {
+  console.log(req.files);
+  const files = req.files;
+  const hashes = [];
+  files.forEach(function(file) {
+    var data = Buffer.from(fs.readFileSync(file.path));
+    ipfs.add(data, function (err, result) {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Internal server error');
+        return;
+      }
+      console.log(result);
+      hashes.push(result[0].hash);
+      if (hashes.length == files.length) {
+        res.json({ hashes: hashes }); // send hashes as JSON response
+      }
+    });
   });
 });
 

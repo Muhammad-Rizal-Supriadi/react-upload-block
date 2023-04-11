@@ -28,7 +28,7 @@ const Register: React.FC = () => {
         console.log('Data berhasil disimpan:', response.data);
         const token = response.data.message.token;
         localStorage.setItem('token', token);
-        navigate('/myform'); // redirect ke halaman MyForm
+        navigate('/document'); // redirect ke halaman MyForm
       })
       .catch(error => {
         console.log('Terjadi kesalahan saat menyimpan data:', error);
