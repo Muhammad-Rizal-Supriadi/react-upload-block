@@ -35,6 +35,9 @@ const Register: React.FC = () => {
       });
   }
   
+  const register = (e: any) => {
+    window.open('http://localhost:3000/register'); //halaman untuk mengupload data suara
+  }
   
   
   return (
@@ -70,6 +73,12 @@ const Register: React.FC = () => {
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit" onClick={handleSubmit}>
             Submit
+        </Button>
+      </Form.Item>
+
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit" onClick={register}>
+            Register
         </Button>
       </Form.Item>
     </Form>

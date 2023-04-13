@@ -26,13 +26,13 @@ const Register: React.FC = () => {
     axios.post('http://localhost:4000/users', data)
       .then(response => {
         console.log('Data berhasil disimpan:', response.data);
-        navigate('/myform'); // redirect ke halaman MyForm
+        navigate('/'); // redirect ke halaman MyForm
       })
       .catch(error => {
         console.log('Terjadi kesalahan saat menyimpan data:', error);
       });
 
-    navigate("/myform")
+    navigate("/")
   }
   
   return (
@@ -45,6 +45,7 @@ const Register: React.FC = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
+      <h3>Register User for Organizations</h3>
       <Form.Item
         label="Username"
         name="username"

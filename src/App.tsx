@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import { Route, Routes } from 'react-router-dom';
 import MyForm from './components/UploadDataBlockchain';
 import IPFS from './public/IPFS';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/myform" element={<MyForm />} />
         <Route path="/document" element={<IPFS />} />
       </Routes>

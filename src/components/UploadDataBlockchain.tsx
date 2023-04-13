@@ -33,8 +33,8 @@ const MyForm: React.FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
-    axios.post(`http://localhost:4000/channels/${channelName}/chaincodes/voting`,{
-      fcn: 'createDoc',
+    axios.post(`http://localhost:4000/channels/${channelName}/chaincodes/voting-kecamatan`,{
+      fcn: 'createData',
       args: [
         JSON.stringify({
           ID: data.ID,
