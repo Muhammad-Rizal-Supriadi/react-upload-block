@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import MyForm from './components/UploadDataBlockchain';
 import IPFS from './public/IPFS';
 import Register from './components/Register';
+import DataVoice from './components/DataVoice';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/myform" element={<MyForm />} />
         <Route path="/document" element={<IPFS />} />
+        <Route path="/datavoice" element={<DataVoice />} />
       </Routes>
     </div>
   );
