@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Card } from 'antd';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,6 +36,7 @@ const Register: React.FC = () => {
   }
   
   return (
+    <Card title="Register User for Organizations" bordered={true}>
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -45,7 +46,6 @@ const Register: React.FC = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <h3>Register User for Organizations</h3>
       <Form.Item
         label="Username"
         name="username"
@@ -72,6 +72,7 @@ const Register: React.FC = () => {
         </Button>
       </Form.Item>
     </Form>
+    </Card>
   );
 }
 

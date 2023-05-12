@@ -20,7 +20,7 @@ const DataVoice: React.FC = () => {
   const [data, setData] = useState<Data[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedChannel, setSelectedChannel] = useState<string>('kabupaten-aceh-barat-daya');
+  const [selectedChannel, setSelectedChannel] = useState<string>('senen');
 
   const token = localStorage.getItem('token');
 
@@ -95,9 +95,9 @@ const DataVoice: React.FC = () => {
     [key: string]: string;
   }
   const channelOptions: ChannelData =  {
-    aceh: 'Aceh',
-    'kabupaten-aceh-barat': 'Kabupaten Aceh Barat',
-    'kabupaten-aceh-barat-daya': 'Kabupaten Aceh Barat Daya',
+    'cilandak': 'Cilandak',
+    'cakung': 'Cakung',
+    'senen': 'Senen',
     // Tambahkan channel beserta keterangan terkait di sini
   };
   return (
@@ -109,8 +109,8 @@ const DataVoice: React.FC = () => {
       ))}
     </select>
 
-      {selectedChannel === 'aceh' ? (
-        <h2>Berikut merupakan data suara di Aceh</h2>
+      {selectedChannel === 'senen' ? (
+        <h2>Berikut merupakan data suara di senen</h2>
       ) : (
         <h2>Berikut merupakan data suara di {channelOptions[selectedChannel]}</h2>
       )}

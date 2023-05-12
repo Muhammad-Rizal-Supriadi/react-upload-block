@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input , Card, Row } from 'antd';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
-const Register: React.FC = () => {
+const Login: React.FC = () => {
 
   const [data, setData] = useState({
     username: '',
@@ -41,6 +41,7 @@ const Register: React.FC = () => {
   
   
   return (
+    <Card title="Login" bordered={true}>
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -70,19 +71,25 @@ const Register: React.FC = () => {
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit" onClick={handleSubmit}>
-            Submit
-        </Button>
-      </Form.Item>
+      <Row style={{ marginLeft:160}}>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+              Login
+          </Button>
+        </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit" onClick={register}>
-            Register
-        </Button>
-      </Form.Item>
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit" onClick={register}>
+              Register
+          </Button>
+        </Form.Item>
+      </Row>
     </Form>
+    </Card>
   );
 }
 
-export default Register;
+export default Login;
+
+
+

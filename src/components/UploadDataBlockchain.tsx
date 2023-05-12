@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Form, Input, Button, InputNumber, Card, Select } from 'antd';
 import axios from 'axios';
 
-const onFinish = (values: object) => {
-  console.log('Form submitted:', values);
-};
+// const onFinish = (values: object) => {
+//   console.log('Form submitted:', values);
+// };
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo)
@@ -72,8 +72,26 @@ const MyForm: React.FC = () => {
     console.log('search:', value);
   };
 
+  const onFinish = (values: object) => {
+    console.log('Form submitted:', values);
+    setData({
+      ID: '',
+      DataHash1: '',
+      DataHash2: '',
+      JmlSuratDiterima: 0,
+      JmlSuratDikembalikan: 0,
+      JmlSuratTidakDigunakan: 0,
+      JmlSuratDigunakan: 0,
+      JmlSuaraSahCalonA: 0,
+      JmlSuaraSahCalonB: 0,
+      JmlSuaraSahSeluruhCalon: 0,
+      JmlSuaraTidakSah: 0,
+      JmlSuaraSahTidakSah: 0,
+    });
+  };
+
   return (
-    <Card title="Input Data Suara" bordered={true} style={{ width: 500 }}>
+    <Card title="Input Data Suara" bordered={true} style={{ width: 700 }}>
     <Form
       labelCol={{ span: 15 }}
       wrapperCol={{ span: 14 }}
@@ -86,7 +104,7 @@ const MyForm: React.FC = () => {
       <Select
         showSearch
         id="channel-dropdown"
-        style={{ width: 300 }}
+        style={{ width: 225 }}
         placeholder="Select a Channel"
         optionFilterProp="children"
         onChange={handleChange}
@@ -96,16 +114,16 @@ const MyForm: React.FC = () => {
         }
         options={[
           {
-            value: 'aceh',
-            label: 'Aceh',
+            value: 'cakung',
+            label: 'Cakung',
           },
           {
-            value: 'kabupaten-aceh-barat',
-            label: 'Kabupaten Aceh Barat',
+            value: 'senen',
+            label: 'Senen',
           },
           {
-            value: 'kabupaten-aceh-barat-daya',
-            label: 'Kabupaten Aceh Barat Daya',
+            value: 'cilandak',
+            label: 'Cilandak',
           },
         ]}
       />

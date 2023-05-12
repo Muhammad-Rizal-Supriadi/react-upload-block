@@ -5,29 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704/JS0rS5g2Gmiw3pPXdEagnnepO5tJta1Txh4+"
+          crossorigin="anonymous">
 </head>
 <body>
     
-    <form action="/profile" method="post" enctype="multipart/form-data">
-        <input type="file" name="avatar" />
-        <button>upload</button>
-      </form>
-      <input id="filehash"type="text">
-      <button onclick="loadDoc()">download</button>
-</body>
+    <div class="container mt-5">
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="avatar">Upload Avatar</label>
+                <input type="file" class="form-control-file" name="avatar" id="avatar">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+        <div class="mt-5">
+            <div class="form-group">
+                <label for="filehash">File Hash</label>
+                <input type="text" class="form-control" id="filehash">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="loadDoc()">Download</button>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+            integrity="sha384-ZySL8Jq3TChTMSsu/BC7/TOr+J8cOvnEqV9+2Xjg0x1Sbh1Q8qCg8FAPoX7JdwVa"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704/JS0rS5g2Gmiw3pPXdEagnnepO5tJta1Txh4+"
+            crossorigin="anonymous"></script>
+
     <script>
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("demo").innerHTML = this.responseText;
-                console.log(this);
-                window.open(this.responseURL);
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                    console.log(this);
+                    window.open(this.responseURL);
                 }
             };
             console.log(document.getElementById("filehash").value)
-            xhttp.open("GET", "download/"+document.getElementById("filehash").value, true);
+            xhttp.open("GET", "download/" + document.getElementById("filehash").value, true);
             xhttp.send();
         }
     </script>
+</body>
 </html>

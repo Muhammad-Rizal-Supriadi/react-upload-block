@@ -4,10 +4,12 @@ import Login from '../components/Login';
 const HomePage: React.FC = () => {
   return (
     <div>
-      <h1>Upload Data Blockchain</h1>
-      <Login />
+      <div style={{ width: '100%', maxWidth: 600, }}>
+        <Login />
+      </div>
     </div>
   );
 };
+
 
 export default HomePage;
